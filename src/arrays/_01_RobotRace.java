@@ -19,15 +19,25 @@ public static void main(String[] args) {
 	//4. make each robot start at the bottom of the screen, side by side, facing up
 	for (int i = 0; i < robots.length; i++) {
 		robots [i].moveTo(x,550);
+		robots [i].penDown();
+		robots [i].setPenColor(0,0,100);
+		robots [i].setPenWidth(100);
 		x+=120;
+	
 	}
+	
 	Random randy = new Random();
 	boolean finished = false;
 	while(!finished) {
 	for (int i = 0; i < robots.length; i++) {
-		robots [i].move(randy.nextInt(51));
+		robots [i].setSpeed(randy.nextInt(9));
+			robots[i].move(30);
+			
+		
 		if(robots[i].getY()<=0) {
 			finished = true ;
+			robots[i].sparkle();
+			
 		}
 	}
 	}
